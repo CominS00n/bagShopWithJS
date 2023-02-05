@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    --white: #ffff;
+    --blue: #6EA6F1;
+    --blue-light: #A6C6F1;
+    --black-light: #E0E0E0;
+    --light-orange-color: #e6bf9a;
+    --light-pink-color: #eac9c1;
+    --brown-color: #a18f80;
+    --width: 1100px;
+    --font: 'Ubuntu';
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right, var(--light-orange-color), var(--light-pink-color));
+}
+
+.login-form {
+    margin-top: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #333;
+}
+.login-form h1 {
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.login-form input[type="text"],input[type="password"] {
+    font-family: var(--font);
+    border: none;
+    border-bottom: solid var(--black-light) 2px;
+    margin-bottom: 30px;
+    height: 30px;
+    width: 80%;
+}
+
+.login-form input[type="submit"] {
+    margin-top: 30px;
+    padding: 10px;
+    font-family: var(--font);
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--blue);
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 0 2px #333;
+}
+.login-form input[type="submit"]:hover {
+    background-color: var(--blue-light);
+    box-shadow: none;
+}
+.login-form a i {
+    margin-top: 20px;
+    font-size: 30px;
+    /* border: solid #333 2px; */
+    border-radius: 10px;
+    color: #333;
+}
+.login-form a i:hover {
+    opacity: 70%;
+}
