@@ -47,28 +47,30 @@
       </div>
 
       <div class="container">
-        <div class="mt-2" style="text-align: center;">
-            <h5 class="mb-2">เพิ่มรายการสินค้า</h5>
-            <form method="POST">
-                <div>
-                    <label>Name : </label>
-                    <input name="pd_name" />
-                </div>
-                <div>
-                    <label>Detail : </label>
-                    <input name="pd_detail" />
-                </div>
-                <div>
-                    <label>Price : </label>
-                    <input name="pd_price" />
-                </div>
-                <div>
-                    <label>Image : </label>
-                    <input type="file" name="pd_imageName"/>
-                </div>
-                <button type="submit">บันทึก</button>
-            </form>
+        <div class="jumbotron text-center">
+          <h1> แก้ไขรายการสินค้า </h1>
         </div>
+        <div class="container">
+          <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ชื่อสินค้า</th>
+                <th>รายละเอียดสินค้า</th>
+                <th>ราคาสินค้า</th>
+                <th>แก้ไข</th>
+            </tr>
+            <form  method="POST">
+            <div >
+              <td><input name="pd_name" value="<%=data.pd_name%>"/> </td> 
+              <td><input name="pd_detail" value="<%=data.pd_detail%>"/></td> 
+              <td><input name ="pd_price" value="<%=data.pd_price%>"/></td>
+              <td><input type = "file" name = "pd_imageName" value="<%=data.pd_imageName%>"/></td>
+              <td><button type="submit">Edit</button></td>
+          </form>
+          </div>
+          </table>
+      </div>
       </div>
 </body>
 
