@@ -16,6 +16,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/slideshow.css">
 
   <!-- Icon CSS-->
   <link href='https://css.gg/search.css' rel='stylesheet'>
@@ -52,11 +53,43 @@
     <a href="/">Home</a>
     <a href="/loginAdmin">LoginAdmin</a>
     <a href="/memberForm">Register</a>
-    <a href="/contact">Contact</a>
+    <a href="#contact">Contact</a>
   </div>
 
-</body>
-<footer id="contact">
+
+  <div class="slideshow-container">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 3</div>
+      <img src="/images/promotion/promotion01.jpg" style="width:1000px; height:350px;">
+      <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="/images/promotion/promotion02.jpg" style="width:1000px; height:350px;">
+      <div class="text"></div>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="/images/promotion/promotion03.jpg" style="width:1000px; height:350px;">
+      <div class="text"></div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <footer id="contact">
     <div class="footer pt-5 mt-5" style="background-color: #f8f0df79">
       <table class="ADDCON" align="center">
         <tr>
@@ -85,23 +118,58 @@
       <br>
       <div align="center">
         <div class="col-sm-10">
-          <center> 
-            <br> <p>CHANEL Customer Care is available Monday to Sunday, 7 AM to 12 AM ET. to answer all your questions.</p>
-            <br> <p>Please email us, call 1.800.550.0005 or live chat with a CHANEL Advisor.</p>
+          <center>
+            <br>
+            <p>CHANEL Customer Care is available Monday to Sunday, 7 AM to 12 AM ET. to answer all your questions.</p>
+            <br>
+            <p>Please email us, call 1.800.550.0005 or live chat with a CHANEL Advisor.</p>
           </center>
         </div>
-  
+
         <div class="social mr-4" align="right">
           <br>
           <a href="https://www.chanel.com/us/"><img src="/images/footer/Web.png" width="25" height="25"></a>
-          <a href="https://www.instagram.com/chanelofficial/"><img src="/images/footer/igofficial.png" width="25" height="25"></a>
-          <a href="https://www.instagram.com/chanel.beauty/"><img src="/images/footer/igbeauty.png" width="25" height="25"></a>
-          <a href="https://twitter.com/CHANEL?s=20&t=AgjBXIn0cuno4Wclr65nDg"><img src="/images/footer/twitter.png" width="25" height="25"></a>
+          <a href="https://www.instagram.com/chanelofficial/"><img src="/images/footer/igofficial.png" width="25"
+              height="25"></a>
+          <a href="https://www.instagram.com/chanel.beauty/"><img src="/images/footer/igbeauty.png" width="25"
+              height="25"></a>
+          <a href="https://twitter.com/CHANEL?s=20&t=AgjBXIn0cuno4Wclr65nDg"><img src="/images/footer/twitter.png"
+              width="25" height="25"></a>
           <a href="https://www.chanel.com/us/"><img src="/images/footer/Youtube.png" width="25" height="25"></a>
           <a href="https://www.facebook.com/chanel/"><img src="/images/footer/Facebook.png" width="25" height="25"></a>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+</body>
 
 </html>
