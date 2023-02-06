@@ -28,6 +28,43 @@
 </head>
 
 <body>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Sans+Thai:wght@300;500;700&family=Rubik:wght@300;500&family=Ubuntu:wght@300;400;500;700&display=swap');
+    * {
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      border-radius: 20px;
+      padding: 30px;
+      background-color: var(--brown-color);
+    }
+
+    h4 {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .text {
+      color: #fff;
+    }
+
+    button[type='submit'] {
+      padding: .5rem;
+      font-weight: 700;
+      border-radius: .5rem;
+      border: none;
+      background-color: var(--dark-brown-color);
+      color: white;
+    }
+    button[type='submit']:hover {
+      background-color: var(--light-brown-color);
+      color: var(--brown-color);
+    }
+  </style>
+
   <div class="header">
     <nav class="row justify-content-md-around p-2">
       <div class="col col-lg-2 p-2">
@@ -50,46 +87,46 @@
       <h4> สมัครสมาชิก </h4>
       <form name="register" method="POST" id="register" class="form-horizontal">
         <div class="form-group">
-          <div> Username : </div>
+          <div class="text" align="left"> Username : </div>
           <div>
-            <input name="username" type="text" required class="form-control w-50" id="username" placeholder="username"
+            <input name="username" type="text" required class="form-control" id="username" placeholder="username"
               pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2" />
           </div>
         </div>
 
         <div class="form-group">
-          <div> Password : </div>
+          <div class="text" align="left"> Password : </div>
           <div>
-            <input name="password" type="password" required class="form-control w-50" id="password" placeholder="password"
+            <input name="password" type="password" required class="form-control" id="password" placeholder="password"
               pattern="^[a-zA-Z0-9]+$" minlength="2" />
           </div>
         </div>
         <div class="form-group">
-          <div> ชื่อ-สกุล : </div>
+          <div class="text" align="left"> ชื่อ-สกุล : </div>
           <div>
-            <input name="name" type="text" required class="form-control w-50" id="name" placeholder="ชื่อ-สกุล" />
+            <input name="name" type="text" required class="form-control" id="name" placeholder="ชื่อ-สกุล" />
           </div>
         </div>
         <div class="form-group">
-          <div> อีเมล์ : </div>
+          <div class="text" align="left"> อีเมล์ : </div>
           <div>
-            <input name="email" type="email" class="form-control w-50" id="email" placeholder="อีเมล์" />
+            <input name="email" type="email" class="form-control" id="email" placeholder="อีเมล์" />
           </div>
         </div>
         <div class="form-group">
-          <div> เบอร์โทร : </div>
+          <div class="text" align="left"> เบอร์โทร : </div>
           <div>
-            <input name="mobile" type="text" class="form-control w-50" id="mobile" placeholder="เบอร์โทร" />
+            <input name="mobile" type="text" class="form-control" id="mobile" placeholder="เบอร์โทร" />
           </div>
         </div>
         <div class="form-group">
-          <div> ที่อยู่ : </div>
+          <div class="text" align="left"> ที่อยู่ : </div>
           <div>
-            <textarea name="address" class="form-control w-50"></textarea>
+            <textarea name="address" class="form-control"></textarea>
           </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="btn"> สมัครสมาชิก </button>
+            <button type="submit" class="btn" id="btn"> สมัครสมาชิก </button>
           </div>
 
         </div>

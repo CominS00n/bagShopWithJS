@@ -28,6 +28,49 @@
 </head>
 
 <body>
+
+  <style>
+    * {
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+    
+    .container {
+      margin-top: 3rem;
+      width: 500px;
+      border-radius: 20px;
+      padding: 30px;
+      background-color: var(--brown-color);
+    }
+
+    h4 {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .text {
+      color: #fff;
+    }
+
+    input[type='file'] {
+      width: 100%;
+    }
+
+    button[type='submit'] {
+      width: 150px;
+      padding: .5rem;
+      font-weight: 700;
+      border-radius: .5rem;
+      border: none;
+      background-color: var(--dark-brown-color);
+      color: white;
+    }
+    button[type='submit']:hover {
+      background-color: var(--light-brown-color);
+      color: var(--brown-color);
+    }
+
+
+  </style>
     <div class="header">
         <nav class="row justify-content-md-around p-2">
           <div class="col col-lg-2 p-2">
@@ -48,24 +91,32 @@
 
       <div class="container">
         <div class="mt-2" style="text-align: center;">
-            <h5 class="mb-2">เพิ่มรายการสินค้า</h5>
+            <h4>เพิ่มรายการสินค้า</h4>
             <form method="POST">
+              <div class="form-group">
+                <div class="text" align="left"> Name : </div>
                 <div>
-                    <label>Name</label>
-                    <input name="pd_name" />
+                  <input name="pd_name" class="form-control" />
                 </div>
+              </div>
+              <div class="form-group">
+                <div class="text" align="left"> Detail : </div>
                 <div>
-                    <label>Detail</label>
-                    <input name="pd_detail" />
+                  <input name="pd_detail" class="form-control" />
                 </div>
+              </div>
+              <div class="form-group">
+                <div class="text" align="left"> Price : </div>
                 <div>
-                    <label>Price</label>
-                    <input name="pd_price" />
+                  <input name="pd_price" class="form-control" />
                 </div>
+              </div>
+              <div class="form-group">
+                <div class="text" align="left"> Image : </div>
                 <div>
-                    <label>Image</label>
-                    <input type="file" name="pd_imageName"/>
+                  <input type="file" name="pd_imageName" />
                 </div>
+              </div>
                 <button type="submit">บันทึก</button>
             </form>
         </div>
