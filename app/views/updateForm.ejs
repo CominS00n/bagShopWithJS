@@ -28,50 +28,50 @@
 </head>
 
 <body>
-    <div class="header">
-        <nav class="row justify-content-md-around p-2">
-          <div class="col col-lg-2 p-2">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
-          </div>
-          <div class="col-lg-4 p-2"></div>
-          <div class="col col-lg-3 p-2">
-            <a class="btn text-uppercase" type="submit" href="/">logout</a>
-          </div>
-        </nav>
-      </div>
-
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
-        <a href="/admin/productForm">Home</a>
-      </div>
-
-      <div class="container">
-        <div class="jumbotron text-center">
-          <h1> แก้ไขรายการสินค้า </h1>
+  <div class="header">
+      <nav class="row justify-content-md-around p-2">
+        <div class="col col-lg-2 p-2">
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+          <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
         </div>
-        <div class="container">
-          <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ชื่อสินค้า</th>
-                <th>รายละเอียดสินค้า</th>
-                <th>ราคาสินค้า</th>
-                <th>แก้ไข</th>
-            </tr>
-            <form  method="POST">
-            <div >
-              <td><input name="pd_name" value="<%=data.pd_name%>"/> </td> 
-              <td><input name="pd_detail" value="<%=data.pd_detail%>"/></td> 
-              <td><input name ="pd_price" value="<%=data.pd_price%>"/></td>
-              <td><input type = "file" name = "pd_imageName" value="<%=data.pd_imageName%>"/></td>
-              <td><button type="submit">Edit</button></td>
-          </form>
-          </div>
-          </table>
-      </div>
-      </div>
+        <div class="col-lg-4 p-2"></div>
+        <div class="col col-lg-3 p-2">
+          <a class="btn text-uppercase" type="submit" href="/">logout</a>
+        </div>
+      </nav>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+    <a href="/admin/productForm">Home</a>
+  </div>
+
+  <center>
+    <div class="container mt-3">
+      <h1>แก้ไขรายการสินค้า</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ชื่อสินค้า</th>
+              <th>รายละเอียดสินค้า</th>
+              <th>ราคาสินค้า</th>
+              <th>รูปภาพสินค้า</th>
+              <th>แก้ไข</th>
+          </tr>
+          <form  method="POST">
+          <div >
+            <td><input name="pd_name" value="<%=data.pd_name%>"/></td> 
+            <td><input name="pd_detail" value="<%=data.pd_detail%>"/></td> 
+            <td><input name ="pd_price" value="<%=data.pd_price%>"/></td>
+            <td><input type = "file" name = "pd_imageName" value="<%=data.pd_imageName%>"/></td>
+            <td><button type="submit">Edit</button></td>
+        </form>
+        </thead>
+        </table>
+        </div>
+    </div>
+  </center>
+     
 </body>
 
 </html>
