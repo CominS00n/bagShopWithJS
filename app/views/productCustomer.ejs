@@ -21,8 +21,8 @@
   <link href='https://css.gg/search.css' rel='stylesheet'>
   <link href='https://css.gg/home.css' rel='stylesheet'>
 
-   <!-- Boxicons CSS -->
-   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- javascript -->
   <script src="/javascripts/index.js"></script>
@@ -31,52 +31,114 @@
 </head>
 
 <body>
-    <div class="header">
-        <nav class="row justify-content-md-around p-2">
-          <div class="col col-lg-2 p-2">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
-          </div>
-          <div class="col-lg-4 p-2">
-            <form class="form-inline" method="get" action="searchForm">
-              <input type="text" name="q" placeholder="Search" value="">
-              <button><i class="gg-search"></i></button>
-            </form>
-          </div>
-          <div class="col col-lg-3 p-2">
-            <a class="btn text-uppercase" type="submit" href="/">logout</a>
-          </div>
-        </nav>
+  <div class="header">
+    <nav class="row justify-content-md-around p-2">
+      <div class="col col-lg-2 p-2">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
       </div>
-    
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
-        <a href="/admin/productCustomer">Home</a>
-        <a href="/loginAdmin">LoginAdmin</a>
-        <a href="/memberForm">Register</a>
-        <a href="#">Contact</a>
+      <div class="col-lg-4 p-2">
+        <form class="form-inline" method="get" action="searchForm">
+          <input type="text" name="q" placeholder="Search" value="">
+          <button><i class="gg-search"></i></button>
+        </form>
       </div>
-    
-      <center>
-        <div class="container">
-          <div class="row">
-            <% items.forEach ( function (item, index ) { %>
-              <div class="col-md-3">
-                <div class="card my-3">
-                  <img class="card-img-top" src="/images/<%=item.pd_imageName%>" alt="Product Picture">
-                  <div class="card-body">
-                    <p class="card-text font-weight-normal" style="height: 50px;"><%=item.pd_name %></p>
-                    <p class="card-text font-weight-light" style="height: 100px;"><%=item.pd_detail %></p>
-                    <p class="card-text">$<%=item.pd_price %></p>
-                      <div class="btn-group">
-                        <a href="#" class="btn m-1">สั่งซื้อ</a>
-                      </div>
-                  </div>
+      <div class="col col-lg-3 p-2">
+        <a class="btn text-uppercase" type="submit" href="/">logout</a>
+      </div>
+    </nav>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+    <a href="/admin/productCustomer">Home</a>
+    <a href="/loginAdmin">LoginAdmin</a>
+    <a href="/memberForm">Register</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <center>
+    <div class="container">
+      <div class="row">
+        <% items.forEach ( function (item, index ) { %>
+          <div class="col-md-3">
+            <div class="card my-3">
+              <img class="card-img-top" src="/images/<%=item.pd_imageName%>" alt="Product Picture">
+              <div class="card-body">
+                <p class="card-text font-weight-normal" style="height: 50px;">
+                  <%=item.pd_name %>
+                </p>
+                <p class="card-text font-weight-light" style="height: 100px;">
+                  <%=item.pd_detail %>
+                </p>
+                <p class="card-text">$<%=item.pd_price %>
+                </p>
+                <div class="btn-group">
+                  <a href="#" class="btn m-1">สั่งซื้อ</a>
                 </div>
               </div>
-              <% } ); %>
+            </div>
           </div>
+          <% } ); %>
+      </div>
+    </div>
+  </center>
+
+  <footer id="contact">
+    <div class="footer pt-5 mt-5" style="background-color: #f8f0df79">
+      <table class="ADDCON" align="center">
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr align="center">
+          <th colspan="2">
+            <h3> Contact US with Chanel</h3>
+          </th>
+        </tr>
+
+        <td colspan="2" align="center">
+          <img src="/images/footer/Chanel.png" width="300" height="210">
+        </td>
+
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+
+        <tr>
+          <td align="right"><b> Address </b></td>
+          <td align="center"> 31 Rue Cambon, 75001 Paris</td>
+        </tr>
+
+        <tr>
+          <td align="right"><b> Phone </b></td>
+          <td align="center"> +33 1 44 50 66 00 </td>
+        </tr>
+      </table>
+      <br>
+      <div align="center">
+        <div class="col-sm-10">
+          <center>
+            <br> CHANEL Customer Care is available Monday to Sunday, 7 AM to 12 AM ET. to answer all your
+            questions.
+            <br> Please email us, call 1.800.550.0005 or live chat with a CHANEL Advisor.
+          </center>
         </div>
-      </center>
+
+        <div class="social mr-4" align="right">
+          <br>
+          <a href="https://www.chanel.com/us/"><img src="/images/footer/Web.png" width="25" height="25"></a>
+          <a href="https://www.instagram.com/chanelofficial/"><img src="/images/footer/igofficial.png" width="25"
+              height="25"></a>
+          <a href="https://www.instagram.com/chanel.beauty/"><img src="/images/footer/igbeauty.png" width="25"
+              height="25"></a>
+          <a href="https://twitter.com/CHANEL?s=20&t=AgjBXIn0cuno4Wclr65nDg"><img src="/images/footer/twitter.png"
+              width="25" height="25"></a>
+          <a href="https://www.chanel.com/us/"><img src="/images/footer/Youtube.png" width="25" height="25"></a>
+          <a href="https://www.facebook.com/chanel/"><img src="/images/footer/Facebook.png" width="25" height="25"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
