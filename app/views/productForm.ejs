@@ -28,19 +28,19 @@
 </head>
 
 <body>
-    <div class="header">
+  <div class="header">
     <nav class="row justify-content-md-around p-2">
-      <div class="col col-lg-2 p-2">
+      <div class="col col-lg-3">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
       </div>
-      <div class="col-lg-4 p-2">
+      <div class="col-lg-5">
         <form class="form-inline" method="get" action="searchForm">
           <input type="text" name="q" placeholder="Search" value="">
           <button><i class="gg-search"></i></button>
         </form>
       </div>
-      <div class="col col-lg-3 p-2">
+      <div class="col col-lg-3">
         <a class="btn text-uppercase" type="submit" href="/">logout</a>
       </div>
     </nav>
@@ -64,7 +64,7 @@
               <div class="card-body">
                 <p class="card-text font-weight-normal" style="height: 50px;"><%=item.pd_name %></p>
                 <p class="card-text font-weight-light" style="height: 100px;"><%=item.pd_detail %></p>
-                <p class="card-text">$<%=item.pd_price %></p>
+                <p class="card-text">&#3647; <%=item.pd_price %></p>
                   <div class="btn-group">
                     <a href="/updateForm/<%=item.pd_ID%>" class="btn m-1">Edit</a>
                     <a href="/productForm/<%=item.pd_ID%>" class="btn m-1">Delete</a>
