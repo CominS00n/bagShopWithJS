@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+  
+    .navbar {
+      background-color: #17a5ba67;
+      color: #070707;
+      padding: 30px;
+    }
+    .navbar a {
+      color: #060606;
+    }
+    .navbar .navbar-right {
+      float: right;
+      padding-right: 20px;
+    }
+    .search-container {
+      float: right;
+      margin-right: 10px;
+    }
+    .search-container input[type="text"] {
+      padding: 6px;
+      border: none;
+      width: 200px;
+    }
+    .search-container button {
+      padding: 6px 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    /* Add custom styles for the main content */
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+  <style>
+    .left-aligned-text {
+      text-align: left;
+    }
+  </style>
+</head>
+<body >
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       <h4> <a class="navbar-brand" href="#">Restaurant</a></h4>
+      </div>
+      <h4><ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="/product">Products</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul></h4>
+    </nav>
+    </body>
+<!-- Payment form -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 payment-form">
+        <h2>ชำระเงิน</h2>
+        <form  action="/paymentlist" method="POST" >
+
+          <div class="form-group">
+            <label for="full-name">เลขที่ใบเสร็จ</label>
+            <select class="form-control" id="orderid" name="orderid" >
+              <% for (let i = 0; i < products.length; i++) { %>
+                <option value="<%= products[i].OrderID %>"><%= products[i].OrderID %></option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="full-name">ชื่อ-สกุล</label>
+            <select class="form-control" id="customername" name="customername" >
+              <% for (let i = 0; i < products.length; i++) { %>
+                <option value="<%= products[i].CustomerName %>"><%= products[i].CustomerName %></option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">อีเมล</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">จำนวนเงิน</label>
+            <select class="form-control" id="totalprice" name="totalprice"  >
+              <% for (let i = 0; i < products.length; i++) { %>
+                <option value="<%= products[i].Totalprice %>"><%= products[i].TotalPrice %> </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="slip">สลิปโอนเงิน</label>
+            <input type="file" class="form-control" id="slip" name="slip" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn btn-primary">ยืนยันข้อมูลชำระเงิน</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

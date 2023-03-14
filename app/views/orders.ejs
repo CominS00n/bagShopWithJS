@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+  
+    .navbar {
+      background-color: #17a5ba67;
+      color: #070707;
+      padding: 30px;
+    }
+    .navbar a {
+      color: #060606;
+    }
+    .navbar .navbar-right {
+      float: right;
+      padding-right: 20px;
+    }
+    .search-container {
+      float: right;
+      margin-right: 10px;
+    }
+    .search-container input[type="text"] {
+      padding: 6px;
+      border: none;
+      width: 200px;
+    }
+    .search-container button {
+      padding: 6px 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    /* Add custom styles for the main content */
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+  <style>
+    .left-aligned-text {
+      text-align: left;
+    }
+  </style>
+</head>
+<body >
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       <h4> <a class="navbar-brand" href="#">Restaurant</a></h4>
+      </div>
+      <h4><ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="/product">Products</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul></h4>
+    </nav>
+    </body>
+</html>
+<div class="container">
+  <div class="row">
+    <!-- Product list column -->
+    <div class="col-md-4">
+      <div class="row">
+        <% for(var i=0; i < products.length; i++) { %>
+          <% if (i % 3 === 0) { %>
+            <div class="col-md-4 mx-auto text-center">
+          <% } else if (i % 3 === 1) { %>
+            <div class="col-md-4 mx-auto text-center">
+          <% } else { %>
+            <div class="col-md-4 mx-auto text-center">
+          <% } %>
+            <div class="card">
+              <style>
+                .product-image {
+                   width: 300px;
+                   height: 300px;
+                }
+              </style>
+              <form action="/orders" method="POST">
+                <div style="margin: auto; text-align: center;">
+                <br>
+                <img class="product-image" src="<%= '/images/imageDB/' + products[i].Image %>" alt="product image">
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= products[i].ProductName %></h5>
+                  <p class="card-text">Price: <%= products[i].ProductPrice %></p>
+                  <style>
+                  </style>
+                </div>
+              </form> 
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <!-- Order form column -->
+    <div class="col-md-3">
+      <h2>Order Product</h2>
+      <form method="POST" action="/createOrder">
+        <div class="form-group">
+          <label for="customerName">Customer Name:</label>
+          <input type="text" class="form-control" id="customerName" name="customerName" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Delivery Address:</label>
+          <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+          <label for="productID">Product:</label>
+          <select class="form-control" id="productID" name="productID" required>
+            <% for (let i = 0; i < products.length; i++) { %>
+              <option value="<%= products[i].ProductID %>"><%= products[i].ProductName %> </option>
+            <% } %>
+          </select>
+          <br>
+          <label for="ProductPrice">Product Price:</label>
+          <select class="form-control" id="ProductPrice" name="ProductPrice" required>
+            <% for (let i = 0; i < products.length; i++) { %>
+              <option value="<%= products[i].ProductPrice %>"><%= products[i].ProductPrice %> </option>
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" min="0" required>
+        </div> 
+        <div class="form-group">
+          <label for="orderDate">Order Date:</label>
+          <input type="date" class="form-control" id="orderDate" name="orderDate" value="<%= (new Date()).toISOString().substr(0,10) %>" required>
+        </div>
+        <div class="form-group">
+          <label for="totalPrice">Total Price:</label>
+          <input type="text" class="form-control" id="totalPrice" name="totalPrice" readonly>
+        </div>
+        <% for (let i = 0; i < products.length; i++) { %>
+          <button>Submit</button>
+        <% } %>
+        <br>
+        <br>
+        <br>
+        <br>
+      </form>
+      <script>
+        const quantityInput = document.getElementById('quantity');
+        const productPriceInput = document.getElementById('ProductPrice');
+        const totalPriceInput = document.getElementById('totalPrice');
+
+        quantityInput.addEventListener('input', () => {
+        const quantity = quantityInput.value;
+        const ProductPrice = productPriceInput.value;
+        const totalPrice = quantity * ProductPrice;
+        totalPriceInput.value = totalPrice;
+        });
+      </script>
+
+      

@@ -114,7 +114,6 @@ router.get('/searchForm', (req, res) => {
   })
 });
 
-
 // Add member
 router.post('/memberForm', (req, res) => {
   var sql = 'INSERT INTO member SET?';
@@ -127,5 +126,7 @@ router.post('/memberForm', (req, res) => {
     }
   })
 });
+
+
 
 module.exports = router;
