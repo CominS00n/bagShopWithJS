@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2023 at 04:16 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Mar 26, 2023 at 08:08 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `ID` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -55,7 +55,7 @@ CREATE TABLE `member` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
   `address` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `member`
@@ -63,6 +63,136 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`memberID`, `name`, `email`, `mobile`, `username`, `password`, `address`) VALUES
 (3, 'สิทธิชัย พักโพธิ์', 'gamesxbow@gmail.com', '093', 'NonaKung', '1234', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `OrderID` int(11) NOT NULL,
+  `CustomerName` varchar(255) NOT NULL,
+  `Address` text NOT NULL,
+  `ProductID` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `OrderDate` date NOT NULL,
+  `TotalPrice` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OrderID`, `CustomerName`, `Address`, `ProductID`, `Quantity`, `OrderDate`, `TotalPrice`) VALUES
+(155, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 12, 2, '2023-02-25', '2419.18'),
+(156, 'Wiparat', 'ฺBangkok Thailland', 12, 2, '2023-02-25', '2419.18'),
+(157, 'Wiparat', 'ฺBangkok Thailland', 8, 2, '2023-02-25', '1045.98'),
+(158, 'Wiparat', 'ฺBangkok Thailland', 11, 0, '2023-02-25', '0.00'),
+(159, 'Wiparat', 'ฺBangkok Thailland', 11, 0, '2023-02-25', '0.00'),
+(160, 'Wiparat', 'ฺBangkok Thailland', 11, 1, '2023-02-25', '120.89'),
+(161, 'Wiparat', 'ฺBangkok Thailland', 11, 2, '2023-02-25', '241.78'),
+(162, 'Wiparat', 'ฺBangkok Thailland', 5, 1, '2023-02-27', '1000.99'),
+(163, 'Wiparat Busyatras', 'Rajamangala University of Technology Thanyaburi, RMUTT', 11, 1, '2023-02-27', '120.89'),
+(164, 'Wiparat Busyatras', 'Rajamangala University of Technology Thanyaburi, RMUTT', 11, 2, '2023-02-27', '241.78'),
+(166, 'Wiparat', 'ฺBangkok Thailland', 2, 2, '2023-03-01', '1000.44'),
+(167, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 5, '2023-03-01', '2501.10'),
+(168, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-06', '1000.44'),
+(169, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 5, 2, '2023-03-06', '2001.98'),
+(170, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 5, 2, '2023-03-06', '2001.98'),
+(171, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-06', '1000.44'),
+(172, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-06', '1000.44'),
+(173, 'Wiparat', 'ฺBangkok Thailland', 1, 1, '2023-03-06', '850.52'),
+(174, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-06', '1000.44'),
+(175, 'Wiparat Busyatras', 'Rajamangala University of Technology Thanyaburi, RMUTT', 1, 3, '2023-03-06', '2551.56'),
+(176, 'Wiparat', 'ฺBangkok Thailland', 5, 2, '2023-03-13', '2001.98'),
+(177, 'Wiparat', 'ฺBangkok Thailland', 5, 2, '2023-03-13', '2001.98'),
+(178, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-13', '1000.44'),
+(179, 'Wiparat', 'ฺBangkok Thailland', 11, 2, '2023-03-13', '241.78'),
+(180, 'Wiparat', 'ฺBangkok Thailland', 5, 2, '2023-03-13', '2001.98'),
+(181, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-13', '1000.44'),
+(182, 'Wiparat', 'ฺBangkok Thailland', 2, 2, '2023-03-13', '1000.44'),
+(183, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-13', '1000.44'),
+(184, 'Wiparat', 'ฺBangkok Thailland', 2, 2, '2023-03-13', '1000.44'),
+(185, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 9, 2, '2023-03-13', '401.10'),
+(186, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-13', '1000.44'),
+(187, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 2, 2, '2023-03-13', '1000.44'),
+(188, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 5, 2, '2023-03-13', '2001.98'),
+(189, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 8, 2, '2023-03-13', '1045.98'),
+(190, 'Wiparat', 'ฺBangkok Thailland', 8, 2, '2023-03-13', '1045.98'),
+(191, 'Wiparat', 'ฺBangkok Thailland', 1, 2, '2023-03-13', '1701.04'),
+(192, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 11, 2, '2023-03-13', '241.78'),
+(193, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 11, 1, '2023-03-13', '120.89'),
+(194, 'Wiparat Busyatras', 'ฺBangkok Thailland', 1, 2, '2023-03-13', '1701.04'),
+(195, 'Wiparat', 'ฺBangkok Thailland', 5, 1, '2023-03-13', '1000.99'),
+(196, 'Wiparat', 'ฺBangkok Thailland', 1, 2, '2023-03-13', '1701.04'),
+(197, 'Wiparat', 'ฺBangkok Thailland', 1, 3, '2023-03-13', '2551.56'),
+(198, 'Wiparat', 'ฺBangkok Thailland', 5, 2, '2023-03-13', '2001.98'),
+(199, 'Wiparat', 'ฺBangkok Thailland', 1, 2, '2023-03-13', '1701.04'),
+(200, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 5, 1, '2023-03-13', '1000.99'),
+(201, 'Wiparat', 'ฺBangkok Thailland', 11, 2, '2023-03-13', '241.78'),
+(202, 'Wiparat', 'ฺBangkok Thailland', 11, 2, '2023-03-13', '241.78'),
+(203, 'Wiparat', 'ฺBangkok Thailland', 11, 2, '2023-03-13', '241.78'),
+(204, 'Wiparat', 'ฺBangkok Thailland', 2, 2, '2023-03-13', '1000.44'),
+(205, 'Wiparat', 'ฺBangkok Thailland', 1, 2, '2023-03-13', '1701.04'),
+(206, 'Wiparat', 'Rajamangala University of Technology Thanyaburi, RMUTT', 11, 2, '2023-03-13', '241.78'),
+(207, 'pop', 'pop', 1, 1, '2023-03-26', '5000.00'),
+(208, 'pop', 'oo', 1, 9, '2023-03-26', '45000.00'),
+(209, 'yy', 'rt', 1, 1, '2023-03-26', '5000.00'),
+(210, 'yy', 'rt', 1, 1, '2023-03-26', '5000.00'),
+(211, 'pop', 'aa', 1, 2, '2023-03-26', '10000.00'),
+(212, 'pop', 'a', 1, 2, '2023-03-26', '10000.00'),
+(213, 'pop', 'pop', 1, 2, '2023-03-26', '10000.00'),
+(214, 'สิทธิชัย', 'tttt', 1, 2, '2023-03-26', '10000.00'),
+(215, 'pop', 'pop', 1, 5, '2023-03-26', '25000.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `PaymentID` int(20) NOT NULL,
+  `OrderID` int(11) NOT NULL,
+  `MobilePhone` varchar(20) NOT NULL,
+  `SlipPayment` varchar(20) NOT NULL,
+  `Email` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PaymentID`, `OrderID`, `MobilePhone`, `SlipPayment`, `Email`) VALUES
+(23, 210, '0938600860', '20210616_230357.jpg', 'gamesxbow@gmail.com'),
+(24, 211, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(28, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(29, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(51, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(52, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(53, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(54, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(55, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(56, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(57, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(58, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(59, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(60, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(61, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(62, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(63, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(64, 212, '0938600860', '332677369_7367584914', 'gamesxbow@gmail.com'),
+(65, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(66, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(67, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(68, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(69, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(70, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(71, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(72, 213, '0938600860', 'e39.png', 'sitthichai_puckpoo@h'),
+(77, 214, '0938600860', 'eka-esports.png', 'gamesxbow@gmail.com'),
+(78, 215, '0938600860', 'pubgmap.io_miramar_t', 'gamesxbow@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -76,7 +206,7 @@ CREATE TABLE `product` (
   `pd_detail` text NOT NULL,
   `pd_price` int(6) NOT NULL,
   `pd_imageName` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
@@ -121,6 +251,19 @@ ALTER TABLE `member`
   ADD PRIMARY KEY (`memberID`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`OrderID`),
+  ADD KEY `pd_ID` (`ProductID`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`PaymentID`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -143,10 +286,32 @@ ALTER TABLE `member`
   MODIFY `memberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `PaymentID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `pd_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `product` (`pd_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

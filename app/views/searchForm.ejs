@@ -60,12 +60,17 @@
             <div class="card my-3">
               <img class="card-img-top" src="/images/<%=item.pd_imageName%>" alt="Product Picture">
               <div class="card-body">
-                <p class="card-text font-weight-normal" style="height: 50px;"><%=item.pd_name %></p>
-                <p class="card-text font-weight-light" style="height: 100px;"><%=item.pd_detail %></p>
-                <p class="card-text">$<%=item.pd_price %></p>
+                <p class="card-text font-weight-normal" style="height: 50px;">
+                  <%=item.pd_name %>
+                </p>
+                <p class="card-text font-weight-light" style="height: 100px;">
+                  <%=item.pd_detail %>
+                </p>
+                <p class="card-text">$<%=item.pd_price %>
+                </p>
                 <div class="btn-group">
-                    <a href="/updateForm/<%=item.pd_ID%>" class="btn m-1">Edit</a>
-                    <a href="/productForm/<%=item.pd_ID%>" class="btn m-1">Delete</a>
+                  <a href="/updateForm/<%=item.pd_ID%>" class="btn m-1">Edit</a>
+                  <a href="/productForm/<%=item.pd_ID%>" class="btn m-1">Delete</a>
                 </div>
               </div>
             </div>
@@ -75,4 +80,5 @@
     </div>
   </center>
 </body>
+
 </html>

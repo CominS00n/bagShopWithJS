@@ -25,6 +25,7 @@ body {
 nav.row {
   background: var(--dark-brown-color);
 }
+
 /* nav div {
   border: solid black 1px;
 } */
@@ -37,26 +38,32 @@ nav.row {
   border-radius: 1rem;
   width: 80%;
 }
+
 @media screen and (max-width: 1000px) {
   .form-inline input[type="text"] {
     width: auto;
   }
 }
-.form-inline button{
+
+.form-inline button {
   margin-left: 5px;
   border: none;
   background-color: var(--dark-brown-color);
   width: 10%;
 }
+
 .form-inline button i {
   color: var(--light-brown-color);
 }
+
 .form-inline button:hover {
   background-color: var(--dark-brown-color);
 }
+
 .form-inline button:focus {
   background-color: var(--dark-brown-color);
 }
+
 .form-inline button i:hover {
   color: var(--light-pink-color);
   background-color: var(--dark-brown-color);
@@ -75,9 +82,11 @@ nav.row {
   background-color: var(--dark-brown-color);
   color: white;
 }
+
 .login-form input[type="password"] {
   margin-left: 3%;
 }
+
 .login-form button[type="submit"] {
   margin-left: 3%;
   padding: .5rem;
@@ -88,6 +97,7 @@ nav.row {
   background-color: var(--brown-color);
   color: white;
 }
+
 .login-form button[type="submit"]:hover {
   background-color: var(--light-brown-color);
   color: var(--brown-color);
@@ -110,7 +120,7 @@ nav.row {
     margin-left: 0;
     width: auto;
   }
-  
+
 }
 
 /* Card */
@@ -123,6 +133,7 @@ nav.row {
   box-shadow: 5px 10px 18px #888;
   border-radius: 1rem;
 }
+
 .card .card-img-top {
   height: 15rem;
   object-fit: contain;
@@ -130,6 +141,7 @@ nav.row {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
+
 /* .card-text {
   border: solid black 1px;
 } */
@@ -138,12 +150,14 @@ nav.row {
   justify-content: center;
   text-align: center;
 }
+
 .btn-group .btn {
   font-family: 'Heebo', sans-serif;
   font-weight: 400;
   background-color: var(--brown-color);
   color: #fff;
 }
+
 .btn-group .btn:hover {
   background-color: var(--light-brown-color);
 }
@@ -161,6 +175,7 @@ nav.row {
   transition: 0.3s;
   padding-top: 60px;
 }
+
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -169,9 +184,11 @@ nav.row {
   display: block;
   /* transition: 0.3s; */
 }
+
 .sidenav a:hover {
   color: var(--light-brown-color);
 }
+
 .sidenav .closebtn {
   position: absolute;
   top: 1rem;
@@ -179,14 +196,23 @@ nav.row {
   color: var(--brown-color);
   right: 25px;
 }
+
 .sidenav .closebtn:hover {
   color: var(--brown-color)
 }
+
 .col span {
   color: var(--brown-color);
 }
+
 @media screen and (max-height: 400px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+
   /* .form-inline input {width: 0;} */
 }

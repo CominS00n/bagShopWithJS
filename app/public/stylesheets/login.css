@@ -32,12 +32,15 @@ body {
     border-radius: 30px;
     box-shadow: 0 0 10px #333;
 }
+
 .login-form h1 {
     margin-bottom: 50px;
     font-size: 25px;
     font-weight: 700;
 }
-.login-form input[type="text"],input[type="password"] {
+
+.login-form input[type="text"],
+input[type="password"] {
     font-family: var(--font);
     border: none;
     border-bottom: solid var(--black-light) 2px;
@@ -58,10 +61,12 @@ body {
     width: 50%;
     box-shadow: 0 0 2px #333;
 }
+
 .login-form input[type="submit"]:hover {
     background-color: var(--blue-light);
     box-shadow: none;
 }
+
 .login-form a i {
     margin-top: 20px;
     font-size: 30px;
@@ -69,6 +74,7 @@ body {
     border-radius: 10px;
     color: #333;
 }
+
 .login-form a i:hover {
     opacity: 70%;
 }

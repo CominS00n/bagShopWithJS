@@ -14,22 +14,22 @@ router.use(session({
 }));
 
 
-router.get('/index', function(request, response) {
+router.get('/index', function (request, response) {
 	response.sendFile(path.join(__dirname + '/index.ejs'));
 });
 
-router.post('/login', function(request, response) {
+router.post('/login', function (request, response) {
 	var username = request.body.username;
 	var password = request.body.password;
 	if (username && password) {
-		connection.query('SELECT * FROM member WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+		connection.query('SELECT * FROM member WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
 				request.session.username = username;
 				response.redirect('admin/productCustomer'); // ทดสอบ login เข้าหน้า homepage ที่ path /
 			} else {
 				response.send('Incorrect Username and/or Password!');
-			}			
+			}
 			response.end();
 		});
 	} else {
@@ -38,7 +38,7 @@ router.post('/login', function(request, response) {
 	}
 });
 
-router.get('/home', function(request, response) {
+router.get('/home', function (request, response) {
 	if (request.session.loggedin) {
 		response.send('Welcome back, ' + request.session.username + '!');
 	} else {

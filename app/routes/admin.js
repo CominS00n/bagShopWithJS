@@ -28,15 +28,15 @@ router.get('/productCustomer', (req, res) => {
 });
 
 //เพิ่มรายการสินค้า  (insert table)   
-router.post('/insertForm',(req, res)=>{
+router.post('/insertForm', (req, res) => {
   var sql = 'INSERT INTO product SET?';
   var data = req.body;
-  mysql.query(sql,data,(err,result)=>{
-    if(err){
+  mysql.query(sql, data, (err, result) => {
+    if (err) {
       res.send(err);
-  } else{
-    res.redirect('admin/productForm');
-  }
+    } else {
+      res.redirect('admin/productForm');
+    }
   })
 });
 
@@ -143,7 +143,7 @@ router.get('/orders', (req, res) => {
 
 // ทำการบันทึกการสั่งซื้อโดยการบันทึกข้อมูลลงในตารางการสั่งซื้อ orders
 router.post('/createOrder', (req, res) => {
-  const { customerName, address, productID, quantity, orderDate, totalPrice,OrderID } = req.body;
+  const { customerName, address, productID, quantity, orderDate, totalPrice, OrderID } = req.body;
   console.log(`Product order: ${OrderID}`);
   const sql = `
     INSERT INTO orders (CustomerName, Address, Quantity, OrderDate, TotalPrice, ProductID)
@@ -154,8 +154,8 @@ router.post('/createOrder', (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-     const orderID = result.insertId; // ดึงค่า OrderID ที่ได้รับจากการ insert ล่าสุด
-     res.redirect(`/finishedOrders?orderID=${orderID}`); 
+      const orderID = result.insertId; // ดึงค่า OrderID ที่ได้รับจากการ insert ล่าสุด
+      res.redirect(`/finishedOrders?orderID=${orderID}`);
     }
   });
 });
@@ -165,17 +165,17 @@ router.post('/createOrder', (req, res) => {
 router.get('/finishedOrders', (req, res) => {
   const orderID = req.query.orderID; // Get productID from query parameter
 
- console.log(`Product ID: ${orderID}`);
- const sql = `
+  console.log(`Product ID: ${orderID}`);
+  const sql = `
  SELECT o.*, p.pd_name, p.pd_ID, p.pd_price,p.pd_imageName
  FROM orders o
  INNER JOIN product p ON o.ProductID = p.pd_ID
  WHERE o.OrderID = ${orderID}`;
-  mysql.query(sql,(err, result) => {
+  mysql.query(sql, (err, result) => {
     if (err) {
       res.status(500).send(err);
-    } else { 
-       res.render('finishedOrders', { products: result });
+    } else {
+      res.render('finishedOrders', { products: result });
 
     }
   });
@@ -198,7 +198,7 @@ router.get('/payment', (req, res) => {
 // เมื่อทำการจ่ายเงินเรียบร้อยแล้วให้ทำรายบันทึการจ่ายลงในตาราง payment
 router.post('/paymentlist', (req, res) => {
   const { orderid, email, phone, slip } = req.body;
-  console.log(`Order ID: ${orderid}`); 
+  console.log(`Order ID: ${orderid}`);
   const sql = `
     INSERT INTO payment (OrderID, MobilePhone, SlipPayment, Email)
     VALUES ('${orderid}', '${phone}', '${slip}', '${email}');

@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;500&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 :root {
-    --dark-brown-color: #63554c;
-    --brown-color: #a18f80;
-    --light-brown-color: #cbbbb5;
-    --light-orange-color: #e6bf9a;
-    --light-pink-color: #eac9c1;
-    --light-wheat-color: #ebdcd3;
-  }
+  --dark-brown-color: #63554c;
+  --brown-color: #a18f80;
+  --light-brown-color: #cbbbb5;
+  --light-orange-color: #e6bf9a;
+  --light-pink-color: #eac9c1;
+  --light-wheat-color: #ebdcd3;
+}
 
 * {
-    box-sizing: border-box
+  box-sizing: border-box
 }
+
 body {
-    font-family: 'Heebo', sans-serif;
-    margin:0
+  font-family: 'Heebo', sans-serif;
+  margin: 0
 }
+
 .mySlides {
-    display: none;
+  display: none;
 }
+
 img {
-    vertical-align: middle;
-    object-fit: contain;
+  vertical-align: middle;
+  object-fit: contain;
 }
 
 /* Slideshow container */
@@ -33,7 +36,8 @@ img {
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -55,8 +59,9 @@ img {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -91,7 +96,8 @@ img {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -102,11 +108,21 @@ img {
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+
+  .prev,
+  .next,
+  .text {
+    font-size: 11px
+  }
 }
