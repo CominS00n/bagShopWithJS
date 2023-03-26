@@ -127,6 +127,91 @@ router.post('/memberForm', (req, res) => {
   })
 });
 
+// แสดงสินค้าที่ต้องการสั่งซื้อหนึ่งรายการตาม id product ที่เลือก
+router.get('/orders', (req, res) => {
+  const ID = req.query.ProductID; // รับ ID ของสินค้าที่กด Add to Cart
+  console.log(`Product ID: ${ID}`); // แสดงค่า ID ใน console
+  const sql = `SELECT * FROM product WHERE pd_ID = ${ID}`;
+  mysql.query(sql, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.render('orders', { products: result });
+    }
+  })
+});
+
+// ทำการบันทึกการสั่งซื้อโดยการบันทึกข้อมูลลงในตารางการสั่งซื้อ orders
+router.post('/createOrder', (req, res) => {
+  const { customerName, address, productID, quantity, orderDate, totalPrice,OrderID } = req.body;
+  console.log(`Product order: ${OrderID}`);
+  const sql = `
+    INSERT INTO orders (CustomerName, Address, Quantity, OrderDate, TotalPrice, ProductID)
+    SELECT '${customerName}', '${address}', '${quantity}', '${orderDate}', '${totalPrice}', '${productID}'
+    FROM product
+    WHERE pd_ID = ?`;
+  mysql.query(sql, [productID], (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+     const orderID = result.insertId; // ดึงค่า OrderID ที่ได้รับจากการ insert ล่าสุด
+     res.redirect(`/finishedOrders?orderID=${orderID}`); 
+    }
+  });
+});
+
+
+// ทำรายการสั่งซื้อเรียบร้อยแสดงรายการที่สั่งโดยทำการ join ตารางการของ orders และ products
+router.get('/finishedOrders', (req, res) => {
+  const orderID = req.query.orderID; // Get productID from query parameter
+
+ console.log(`Product ID: ${orderID}`);
+ const sql = `
+ SELECT o.*, p.pd_name, p.pd_ID, p.pd_price,p.pd_imageName
+ FROM orders o
+ INNER JOIN product p ON o.ProductID = p.pd_ID
+ WHERE o.OrderID = ${orderID}`;
+  mysql.query(sql,(err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else { 
+       res.render('finishedOrders', { products: result });
+
+    }
+  });
+});
+
+// ทำรายการดึงข้อมูลบางส่วนขึ้นมาแสดงเพื่อทำรายการจ่ายเงิน
+router.get('/payment', (req, res) => {
+  const order_ID = req.query.order_ID; // รับ ID ของสินค้าที่กด Add to Cart
+  console.log(`order ID: ${order_ID}`); // แสดงค่า ID ใน console
+  const sql = `SELECT * FROM orders WHERE OrderID = ${order_ID}`;
+  mysql.query(sql, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.render('payment', { products: result });
+    }
+  })
+});
+
+// เมื่อทำการจ่ายเงินเรียบร้อยแล้วให้ทำรายบันทึการจ่ายลงในตาราง payment
+router.post('/paymentlist', (req, res) => {
+  const { orderid, email, phone, slip } = req.body;
+  console.log(`Order ID: ${orderid}`); 
+  const sql = `
+    INSERT INTO payment (OrderID, MobilePhone, SlipPayment, Email)
+    VALUES ('${orderid}', '${phone}', '${slip}', '${email}');
+  `;
+  mysql.query(sql, (err, result) => {
+    if (err) {
+      throw err;
+    } else {
+      res.render('success', { orderid }); // ส่งค่า orderid ไปที่หน้า success 
+    }
+  });
+});
+
 
 
 module.exports = router;

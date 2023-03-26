@@ -1,166 +1,160 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Add custom styles for the navigation bar and search bar */
-  
-    .navbar {
-      background-color: #17a5ba67;
-      color: #070707;
-      padding: 30px;
-    }
-    .navbar a {
-      color: #060606;
-    }
-    .navbar .navbar-right {
-      float: right;
-      padding-right: 20px;
-    }
-    .search-container {
-      float: right;
-      margin-right: 10px;
-    }
-    .search-container input[type="text"] {
-      padding: 6px;
-      border: none;
-      width: 200px;
-    }
-    .search-container button {
-      padding: 6px 10px;
-      background: #333;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    /* Add custom styles for the main content */
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
-  <style>
-    .left-aligned-text {
-      text-align: left;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/navbar.css">
+
+  <!-- Icon CSS-->
+  <link href='https://css.gg/search.css' rel='stylesheet'>
+  <link href='https://css.gg/home.css' rel='stylesheet'>
+
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- javascript -->
+  <script src="/javascripts/index.js"></script>
+
+
 </head>
-<body >
+
+<body>
   <!-- Navigation bar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-       <h4> <a class="navbar-brand" href="#">Restaurant</a></h4>
+  <div class="header">
+    <nav class="row justify-content-md-around p-2">
+      <div class="col col-lg-3">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
       </div>
-      <h4><ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="/product">Products</a></li>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul></h4>
+      <div class="col-lg-5">
+        <!-- <form class="form-inline" method="get" action="searchForm">
+          <input type="text" name="q" placeholder="Search" value="">
+          <button><i class="gg-search"></i></button>
+        </form> -->
+      </div>
+      <div class="col col-lg-3">
+        <!-- <a class="btn text-uppercase" type="submit" href="/">logout</a> -->
+      </div>
     </nav>
-    </body>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+    <a href="/admin/productCustomer">Home</a>
+    <!-- <a href="/loginAdmin">LoginAdmin</a>
+    <a href="/memberForm">Register</a>
+    <a href="#contact">Contact</a> -->
+  </div>
+
 </html>
 <div class="container">
   <div class="row">
     <!-- Product list column -->
-    <div class="col-md-4">
+    <div class="col-md-5">
       <div class="row">
         <% for(var i=0; i < products.length; i++) { %>
-          <% if (i % 3 === 0) { %>
+          <% if (i % 3===0) { %>
             <div class="col-md-4 mx-auto text-center">
-          <% } else if (i % 3 === 1) { %>
-            <div class="col-md-4 mx-auto text-center">
-          <% } else { %>
-            <div class="col-md-4 mx-auto text-center">
-          <% } %>
-            <div class="card">
-              <style>
-                .product-image {
-                   width: 300px;
-                   height: 300px;
-                }
-              </style>
-              <form action="/orders" method="POST">
-                <div style="margin: auto; text-align: center;">
-                <br>
-                <img class="product-image" src="<%= '/images/imageDB/' + products[i].Image %>" alt="product image">
-              </div>
-                <div class="card-body">
-                  <h5 class="card-title"><%= products[i].ProductName %></h5>
-                  <p class="card-text">Price: <%= products[i].ProductPrice %></p>
-                  <style>
-                  </style>
+              <% } else if (i % 3===1) { %>
+                <div class="col-md-4 mx-auto text-center">
+                  <% } else { %>
+                    <div class="col-md-4 mx-auto text-center">
+                      <% } %>
+                        <div class="card my-3">
+                          <form action="/orders" method="POST">
+                            <div style="margin: auto; text-align: center;">
+                              <br>
+                              <img class="card-img-top" src="<%= '/images/' + products[i].pd_imageName %>"
+                                alt="product image">
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                <%= products[i].pd_name %>
+                              </h5>
+                              <p class="card-text">Price: <%= products[i].pd_price %>
+                              </p>
+                              <style>
+                              </style>
+                            </div>
+                          </form>
+                        </div>
+                    </div>
+                    <% } %>
                 </div>
-              </form> 
             </div>
-          </div>
-        <% } %>
-      </div>
-    </div>
-    <!-- Order form column -->
-    <div class="col-md-3">
-      <h2>Order Product</h2>
-      <form method="POST" action="/createOrder">
-        <div class="form-group">
-          <label for="customerName">Customer Name:</label>
-          <input type="text" class="form-control" id="customerName" name="customerName" required>
-        </div>
-        <div class="form-group">
-          <label for="address">Delivery Address:</label>
-          <input type="text" class="form-control" id="address" name="address" required>
-        </div>
-        <div class="form-group">
-          <label for="productID">Product:</label>
-          <select class="form-control" id="productID" name="productID" required>
-            <% for (let i = 0; i < products.length; i++) { %>
-              <option value="<%= products[i].ProductID %>"><%= products[i].ProductName %> </option>
-            <% } %>
-          </select>
-          <br>
-          <label for="ProductPrice">Product Price:</label>
-          <select class="form-control" id="ProductPrice" name="ProductPrice" required>
-            <% for (let i = 0; i < products.length; i++) { %>
-              <option value="<%= products[i].ProductPrice %>"><%= products[i].ProductPrice %> </option>
-            <% } %>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="quantity">Quantity:</label>
-          <input type="number" class="form-control" id="quantity" name="quantity" min="0" required>
-        </div> 
-        <div class="form-group">
-          <label for="orderDate">Order Date:</label>
-          <input type="date" class="form-control" id="orderDate" name="orderDate" value="<%= (new Date()).toISOString().substr(0,10) %>" required>
-        </div>
-        <div class="form-group">
-          <label for="totalPrice">Total Price:</label>
-          <input type="text" class="form-control" id="totalPrice" name="totalPrice" readonly>
-        </div>
-        <% for (let i = 0; i < products.length; i++) { %>
-          <button>Submit</button>
-        <% } %>
-        <br>
-        <br>
-        <br>
-        <br>
-      </form>
-      <script>
-        const quantityInput = document.getElementById('quantity');
-        const productPriceInput = document.getElementById('ProductPrice');
-        const totalPriceInput = document.getElementById('totalPrice');
+            <!-- Order form column -->
+            <div class="col-md-3">
+              <h2>Order Product</h2>
+              <form method="POST" action="/createOrder">
+                <div class="form-group">
+                  <label for="customerName">Customer Name:</label>
+                  <input type="text" class="form-control" id="customerName" name="customerName" required>
+                </div>
+                <div class="form-group">
+                  <label for="address">Delivery Address:</label>
+                  <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                  <label for="productID">Product:</label>
+                  <select class="form-control" id="productID" name="productID" required>
+                    <% for (let i=0; i < products.length; i++) { %>
+                      <option value="<%= products[i].pd_ID %>">
+                        <%= products[i].pd_ID %>
+                      </option>
+                      <% } %>
+                  </select>
+                  <br>
+                  <label for="ProductPrice">Product Price:</label>
+                  <select class="form-control" id="ProductPrice" name="ProductPrice" required>
+                    <% for (let i=0; i < products.length; i++) { %>
+                      <option value="<%= products[i].pd_price %>">
+                        <%= products[i].pd_price %>
+                      </option>
+                      <% } %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="quantity">Quantity:</label>
+                  <input type="number" class="form-control" id="quantity" name="quantity" min="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="orderDate">Order Date:</label>
+                  <input type="date" class="form-control" id="orderDate" name="orderDate"
+                    value="<%= (new Date()).toISOString().substr(0,10) %>" required>
+                </div>
+                <div class="form-group">
+                  <label for="totalPrice">Total Price:</label>
+                  <input type="text" class="form-control" id="totalPrice" name="totalPrice" readonly>
+                </div>
+                <% for (let i=0; i < products.length; i++) { %>
+                  <button>Submit</button>
+                  <% } %>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+              </form>
+              <script>
+                const quantityInput = document.getElementById('quantity');
+                const productPriceInput = document.getElementById('ProductPrice');
+                const totalPriceInput = document.getElementById('totalPrice');
 
-        quantityInput.addEventListener('input', () => {
-        const quantity = quantityInput.value;
-        const ProductPrice = productPriceInput.value;
-        const totalPrice = quantity * ProductPrice;
-        totalPriceInput.value = totalPrice;
-        });
-      </script>
-
-      
+                quantityInput.addEventListener('input', () => {
+                  const quantity = quantityInput.value;
+                  const ProductPrice = productPriceInput.value;
+                  const totalPrice = quantity * ProductPrice;
+                  totalPriceInput.value = totalPrice;
+                });
+              </script>

@@ -59,29 +59,31 @@
 
   <center>
     <div class="container">
-      <div class="row">
-        <% items.forEach ( function (item, index ) { %>
-          <!-- <div class="col-md-3"> -->
-            <div class="card my-3">
-              <img class="card-img-top" src="/images/<%=item.pd_imageName%>" alt="Product Picture">
-              <div class="card-body">
-                <p class="card-text font-weight-normal" style="height: 50px;">
-                  <%=item.pd_name %>
-                </p>
-                <p class="card-text font-weight-light" style="height: 100px;">
-                  <%=item.pd_detail %>
-                </p>
-                <p class="card-text">&#3647; <%=item.pd_price %>
-                </p>
-                <div class="btn-group">
-                  <!-- <a href="/orders" class="btn m-1" name="ProductID" value="<%= item.pd_ID %>>สั่งซื้อ</a> -->
-                  <button class="add-to-cart-button" name="ProductID" value="<%= item.pd_ID %>">Add to Cart</button>
+      <form action="/orders">
+          <div class="row">
+          <% items.forEach ( function (item, index ) { %>
+            <!-- <div class="col-md-3"> -->
+              <div class="card my-3">
+                <img class="card-img-top" src="/images/<%=item.pd_imageName%>" alt="Product Picture">
+                <div class="card-body">
+                  <p class="card-text font-weight-normal" style="height: 50px;">
+                    <%=item.pd_name %>
+                  </p>
+                  <p class="card-text font-weight-light" style="height: 100px;">
+                    <%=item.pd_detail %>
+                  </p>
+                  <p class="card-text">&#3647; <%=item.pd_price %>
+                  </p>
+                  <div class="btn-group">
+                    <!-- <a href="/orders" class="btn m-1" name="ProductID" value="<%= item.pd_ID %>>สั่งซื้อ</a> -->
+                    <button class="add-to-cart-button" name="ProductID" value=<%= item.pd_ID %>>Add to Cart</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          <!-- </div> -->
-          <% } ); %>
-      </div>
+            <!-- </div> -->
+            <% } ); %>
+          </div>
+        </form>
     </div>
   </center>
 

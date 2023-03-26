@@ -1,117 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Add custom styles for the navigation bar and search bar */
-  
-    .navbar {
-      background-color: #17a5ba67;
-      color: #070707;
-      padding: 30px;
-    }
-    .navbar a {
-      color: #060606;
-    }
-    .navbar .navbar-right {
-      float: right;
-      padding-right: 20px;
-    }
-    .search-container {
-      float: right;
-      margin-right: 10px;
-    }
-    .search-container input[type="text"] {
-      padding: 6px;
-      border: none;
-      width: 200px;
-    }
-    .search-container button {
-      padding: 6px 10px;
-      background: #333;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    /* Add custom styles for the main content */
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
-  <style>
-    .left-aligned-text {
-      text-align: left;
-    }
-  </style>
-</head>
-<body >
-  <!-- Navigation bar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-       <h4> <a class="navbar-brand" href="#">Restaurant</a></h4>
-      </div>
-      <h4><ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="/product">Products</a></li>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul></h4>
-    </nav>
-    </body>
-<!-- Payment form -->
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 payment-form">
-        <h2>ชำระเงิน</h2>
-        <form  action="/paymentlist" method="POST" >
 
-          <div class="form-group">
-            <label for="full-name">เลขที่ใบเสร็จ</label>
-            <select class="form-control" id="orderid" name="orderid" >
-              <% for (let i = 0; i < products.length; i++) { %>
-                <option value="<%= products[i].OrderID %>"><%= products[i].OrderID %></option>
-              <% } %>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="full-name">ชื่อ-สกุล</label>
-            <select class="form-control" id="customername" name="customername" >
-              <% for (let i = 0; i < products.length; i++) { %>
-                <option value="<%= products[i].CustomerName %>"><%= products[i].CustomerName %></option>
-              <% } %>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="email">อีเมล</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">เบอร์โทรศัพท์</label>
-            <input type="tel" class="form-control" id="phone" name="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="amount">จำนวนเงิน</label>
-            <select class="form-control" id="totalprice" name="totalprice"  >
-              <% for (let i = 0; i < products.length; i++) { %>
-                <option value="<%= products[i].Totalprice %>"><%= products[i].TotalPrice %> </option>
-              <% } %>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="slip">สลิปโอนเงิน</label>
-            <input type="file" class="form-control" id="slip" name="slip" accept="image/*" required>
-          </div>
-          <button type="submit" class="btn btn-primary">ยืนยันข้อมูลชำระเงิน</button>
-        </form>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <!-- Icon CSS-->
+  <link href='https://css.gg/search.css' rel='stylesheet'>
+  <link href='https://css.gg/home.css' rel='stylesheet'>
+
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- javascript -->
+  <script src="/javascripts/index.js"></script>
+
+</head>
+
+<body>
+  <div class="header">
+    <nav class="row justify-content-md-around p-2">
+      <div class="col col-lg-3">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <!-- <a class="navbar-brand text-uppercase" href="#">ComingS00n Shop</a> -->
       </div>
-    </div>
+      <div class="col-lg-5">
+        <!-- <form class="form-inline" method="get" action="searchForm">
+          <input type="text" name="q" placeholder="Search" value="">
+          <button><i class="gg-search"></i></button>
+        </form> -->
+      </div>
+      <div class="col col-lg-3">
+        <!-- <a class="btn text-uppercase" type="submit" href="/">logout</a> -->
+      </div>
+    </nav>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+    <a href="/admin/productCustomer">Home</a>
+    <!-- <a href="/loginAdmin">LoginAdmin</a>
+    <a href="/memberForm">Register</a>
+    <a href="#contact">Contact</a> -->
   </div>
 </body>
+<!-- Payment form -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 payment-form">
+      <h2>ชำระเงิน</h2>
+      <form action="/paymentlist" method="POST">
+
+        <div class="form-group">
+          <label for="full-name">เลขที่ใบเสร็จ</label>
+          <select class="form-control" id="orderid" name="orderid">
+            <% for (let i=0; i < products.length; i++) { %>
+              <option value="<%= products[i].OrderID %>">
+                <%= products[i].OrderID %>
+              </option>
+              <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="full-name">ชื่อ-สกุล</label>
+          <select class="form-control" id="customername" name="customername">
+            <% for (let i=0; i < products.length; i++) { %>
+              <option value="<%= products[i].CustomerName %>">
+                <%= products[i].CustomerName %>
+              </option>
+              <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">อีเมล</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">เบอร์โทรศัพท์</label>
+          <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="amount">จำนวนเงิน</label>
+          <select class="form-control" id="totalprice" name="totalprice">
+            <% for (let i=0; i < products.length; i++) { %>
+              <option value="<%= products[i].Totalprice %>">
+                <%= products[i].TotalPrice %>
+              </option>
+              <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="slip">สลิปโอนเงิน</label>
+          <input type="file" class="form-control" id="slip" name="slip" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">ยืนยันข้อมูลชำระเงิน</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
 </html>
